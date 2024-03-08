@@ -51,6 +51,23 @@ in flow.
 
 ### Well done!
 
+## DAG Graph UIs:
+1. user_processing:
+![alt text](image-6.png)
+2. parallel_dag:
+![alt text](image-7.png)
+
+## Monitor tasks with Flower:
+* run command: docker-compose down && docker-compose --profile flower up -d
+* we can see our worker and tasks on Flower UI:
+![alt text](image-10.png)
+![alt text](image-12.png)
+![alt text](image-11.png)
+
+## Remove DAG examples, if you want to keep our Airflow instance nice and clean:
+* AIRFLOW__CORE__LOAD_EXAMPLES: false
+
+
 ###### Debugging commands: 
 ````
   docker-compose ps
