@@ -71,6 +71,11 @@ in flow.
 * ![alt text](image-13.png)
 * ![alt text](image-14.png)
 
+## BranchPythonOperator: 
+* returns the task IDs of the next task to execute if the condition is true or not.
+![alt text](image-15.png)
+![alt text](image-16.png)
+
 ###### Debugging commands: 
 ````
   docker-compose ps
