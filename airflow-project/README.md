@@ -67,6 +67,9 @@ in flow.
 ## Remove DAG examples, if you want to keep our Airflow instance nice and clean:
 * AIRFLOW__CORE__LOAD_EXAMPLES: false
 
+## Use task groups instead of the sub decks
+* ![alt text](image-13.png)
+* ![alt text](image-14.png)
 
 ###### Debugging commands: 
 ````
