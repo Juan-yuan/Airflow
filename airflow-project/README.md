@@ -76,6 +76,15 @@ in flow.
 ![alt text](image-15.png)
 ![alt text](image-16.png)
 
+## add elastic plugin corresponds to 'elastic hook', and register plugin to project:
+* file: /dags/plugins/hooks/elastic/elastic_hook.py
+* local check:
+  * run: docker-compose -f docker-compose-es.yaml ps
+  * get into scheduler file, run: docker exec -it airflow-project_airflow-scheduler_1 /bin/bash
+  * check plugin details, run: airflow plugins
+![alt text](image-17.png)
+
+
 ###### Debugging commands: 
 ````
   docker-compose ps
