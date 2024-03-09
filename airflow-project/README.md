@@ -76,17 +76,35 @@ in flow.
 ![alt text](image-15.png)
 ![alt text](image-16.png)
 
-## add elastic plugin corresponds to 'elastic hook', and register plugin to project:
+## Add elastic plugin corresponds to 'elastic hook', and register plugin to project:
 * file: /dags/plugins/hooks/elastic/elastic_hook.py
 * local check:
   * run: docker-compose -f docker-compose-es.yaml ps
   * get into scheduler file, run: docker exec -it airflow-project_airflow-scheduler_1 /bin/bash
   * check plugin details, run: airflow plugins
 ![alt text](image-17.png)
+* add below elastic DAG file:
+```` { .lang #example style="color: #333; background: #f8f8f8;" }
+  from airflow import DAG
+  from airflow.operators.python import PythonOperator
+  from hooks.elastic.elastic_hook import ElasticHook
 
+  from datetime import datetime
 
-###### Debugging commands: 
+  def _print_es_info():
+    hook = ElasticHook()
+    print(hook.info)
+
+  with DAG('elastic_dag', start_date=datetime(2022, 1, 1),
+          schedule_interval='@daily',
+          catchup=False
+          ) as dag:
+    
+    print_es_info = PythonOperator(
+      task_id='print_es_info',
+      python_callable=_print_es_info
+    )
 ````
-  docker-compose ps
-  docker volume prune
-````
+
+* Airflow Elastic DAG UI:
+![alt text](image-18.png)
